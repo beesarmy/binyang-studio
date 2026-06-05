@@ -651,6 +651,163 @@
       line-height: 1.8;
     }
 
+    /* ========== SUMMER CLASSES ========== */
+    .summer-classes {
+      background: linear-gradient(135deg, rgba(42,36,32,0.5) 0%, rgba(94,58,26,0.3) 100%);
+      position: relative;
+    }
+    .summer-classes::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+    }
+    .summer-classes .section-label { color: var(--gold-light); }
+    .summer-classes .section-title { color: var(--cream); }
+    .summer-classes .section-title-zh { color: var(--warm-gray-lt); }
+
+    .summer-intro {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .summer-tagline {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+    .summer-description {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: var(--warm-gray-lt);
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .summer-courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .summer-course-item {
+      background: rgba(255,253,247,0.04);
+      border: 1px solid rgba(194,144,56,0.15);
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .summer-course-item:hover {
+      background: rgba(194,144,56,0.08);
+      border-color: rgba(194,144,56,0.3);
+      transform: translateY(-4px);
+    }
+    .course-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    .course-name-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .course-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--gold-pale);
+      margin-bottom: 0.8rem;
+    }
+    .summer-course-item p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      color: var(--warm-gray-lt);
+      line-height: 1.6;
+    }
+
+    .summer-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background: rgba(194,144,56,0.06);
+      border: 1px solid rgba(194,144,56,0.15);
+    }
+    .instructor-info, .class-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .info-label {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.8rem;
+    }
+    .info-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .info-detail {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: var(--warm-gray-lt);
+      line-height: 1.7;
+    }
+    .info-detail span {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .summer-cta {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(194,144,56,0.08);
+      border: 1px solid rgba(194,144,56,0.2);
+    }
+    .cta-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+    }
+    .cta-contacts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      justify-items: center;
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .contact-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      color: var(--gold-pale);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .contact-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
     /* ========== GALLERY ========== */
     .gallery {
       background: var(--cream);
@@ -1049,6 +1206,9 @@
       .programs-row-2 { grid-template-columns: 1fr; max-width: 100%; }
       .schools-grid { grid-template-columns: 1fr; }
       .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .summer-courses { grid-template-columns: repeat(2, 1fr); }
+      .summer-info { grid-template-columns: 1fr; }
+      .cta-contacts { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
@@ -1108,6 +1268,7 @@
         <li><a href="#philosophy" onclick="closeNav()">Philosophy</a></li>
         <li><a href="#instructor" onclick="closeNav()">Instructor</a></li>
         <li><a href="#programs" onclick="closeNav()">Programs</a></li>
+        <li><a href="#summer" onclick="closeNav()">Summer 2026</a></li>
         <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
         <li><a href="#acceptances" onclick="closeNav()">Alumni</a></li>
         <li><a href="#contact" onclick="closeNav()" class="nav-cta">Contact</a></li>
@@ -1261,6 +1422,86 @@
           <div class="program-title-zh">成人油画兴趣班</div>
           <div class="program-title-en">Adult Oil Painting Class</div>
           <p class="program-desc">丰实家长创意力，汇渡风景花卉静物之乐<br><br>Explore the joy of painting landscapes, florals, and still life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUMMER CLASSES ===== -->
+  <section class="summer-classes" id="summer">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Special Offering</div>
+        <h2 class="section-title">2026 Summer Premium Courses</h2>
+        <div class="section-title-zh">2026 暑假精品课程招生</div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="summer-intro reveal">
+        <p class="summer-tagline">这个暑假，让艺术力全面进阶！</p>
+        <p class="summer-description">
+          很多孩子学了几年画画，却始终没有真正建立：观察能力、造型能力、色彩能力、创作能力。暑假，恰恰是拉开差距最快的时候。
+        </p>
+      </div>
+
+      <div class="summer-courses reveal">
+        <div class="summer-course-item">
+          <div class="course-icon">✏️</div>
+          <div class="course-name-zh">素描基础与提高</div>
+          <div class="course-name-en">Sketching & Drawing Fundamentals</div>
+          <p>结构｜透视｜光影｜静物｜人物｜速写本</p>
+        </div>
+        <div class="summer-course-item">
+          <div class="course-icon">🎨</div>
+          <div class="course-name-zh">色彩与油画</div>
+          <div class="course-name-en">Color & Oil Painting</div>
+          <p>色彩关系｜色彩调和｜油画创作</p>
+        </div>
+        <div class="summer-course-item">
+          <div class="course-icon">🖼️</div>
+          <div class="course-name-zh">AP Art / 艺术高中 / 作品集方向</div>
+          <div class="course-name-en">AP Art & Portfolio Preparation</div>
+          <p>适合有长期艺术规划学生</p>
+        </div>
+        <div class="summer-course-item">
+          <div class="course-icon">😊</div>
+          <div class="course-name-zh">儿童创意绘画</div>
+          <div class="course-name-en">Creative Art for Children</div>
+          <p>培养观察力与美达能力</p>
+        </div>
+      </div>
+
+      <div class="summer-info reveal">
+        <div class="instructor-info">
+          <div class="info-label">授课老师</div>
+          <div class="info-value">梅琳</div>
+          <div class="info-detail">中国油画院特聘画家<br>职业油画家<br>9年升学教育经验</div>
+        </div>
+        <div class="class-info">
+          <div class="info-label">班级信息</div>
+          <div class="info-detail">
+            <span>👥 小班教学，名额有限</span><br>
+            <span>👤 因材施教，个性化指导</span><br>
+            <span>🎯 专业指导，全面提升</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="summer-cta reveal">
+        <p class="cta-text">欢迎预约免费试课与咨询</p>
+        <div class="cta-contacts">
+          <div class="contact-item">
+            <span class="contact-label">WeChat:</span>
+            <span class="contact-value">binyangfineart</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Phone:</span>
+            <span class="contact-value">917-708-4627</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Email:</span>
+            <span class="contact-value">binyangfineart@gmail.com</span>
+          </div>
         </div>
       </div>
     </div>
