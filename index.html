@@ -653,7 +653,7 @@
 
     /* ========== SUMMER CLASSES ========== */
     .summer-classes {
-      background: linear-gradient(135deg, rgba(42,36,32,0.5) 0%, rgba(94,58,26,0.3) 100%);
+      background: var(--cream);
       position: relative;
     }
     .summer-classes::before {
@@ -663,9 +663,9 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
     }
-    .summer-classes .section-label { color: var(--gold-light); }
-    .summer-classes .section-title { color: var(--cream); }
-    .summer-classes .section-title-zh { color: var(--warm-gray-lt); }
+    .summer-classes .section-label { color: var(--gold); }
+    .summer-classes .section-title { color: var(--umber); }
+    .summer-classes .section-title-zh { color: var(--warm-gray); }
 
     .summer-intro {
       text-align: center;
@@ -675,13 +675,13 @@
       font-family: 'Noto Serif SC', serif;
       font-size: 1.2rem;
       font-weight: 500;
-      color: var(--gold-light);
+      color: var(--sienna);
       margin-bottom: 1rem;
     }
     .summer-description {
       font-family: 'Outfit', sans-serif;
       font-size: 0.95rem;
-      color: var(--warm-gray-lt);
+      color: var(--umber);
       line-height: 1.8;
       max-width: 600px;
       margin: 0 auto;
@@ -694,15 +694,15 @@
       margin-bottom: 2.5rem;
     }
     .summer-course-item {
-      background: rgba(255,253,247,0.04);
-      border: 1px solid rgba(194,144,56,0.15);
+      background: rgba(94,58,26,0.06);
+      border: 1px solid rgba(194,144,56,0.2);
       padding: 1.5rem;
       text-align: center;
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .summer-course-item:hover {
-      background: rgba(194,144,56,0.08);
-      border-color: rgba(194,144,56,0.3);
+      background: rgba(194,144,56,0.12);
+      border-color: rgba(194,144,56,0.4);
       transform: translateY(-4px);
     }
     .course-icon {
@@ -713,20 +713,20 @@
       font-family: 'Noto Serif SC', serif;
       font-size: 0.95rem;
       font-weight: 500;
-      color: var(--cream);
+      color: var(--umber);
       margin-bottom: 0.3rem;
     }
     .course-name-en {
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.8rem;
       font-style: italic;
-      color: var(--gold-pale);
+      color: var(--gold);
       margin-bottom: 0.8rem;
     }
     .summer-course-item p {
       font-family: 'Outfit', sans-serif;
       font-size: 0.75rem;
-      color: var(--warm-gray-lt);
+      color: var(--warm-gray);
       line-height: 1.6;
     }
 
@@ -736,8 +736,8 @@
       gap: 2rem;
       margin-bottom: 2rem;
       padding: 2rem;
-      background: rgba(194,144,56,0.06);
-      border: 1px solid rgba(194,144,56,0.15);
+      background: rgba(194,144,56,0.1);
+      border: 1px solid rgba(194,144,56,0.25);
     }
     .instructor-info, .class-info {
       display: flex;
@@ -747,7 +747,7 @@
       font-family: 'Noto Serif SC', serif;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--gold-light);
+      color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.8rem;
@@ -755,13 +755,13 @@
     .info-value {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
-      color: var(--cream);
+      color: var(--umber);
       margin-bottom: 0.5rem;
     }
     .info-detail {
       font-family: 'Outfit', sans-serif;
       font-size: 0.85rem;
-      color: var(--warm-gray-lt);
+      color: var(--umber);
       line-height: 1.7;
     }
     .info-detail span {
@@ -772,14 +772,14 @@
     .summer-cta {
       text-align: center;
       padding: 2rem;
-      background: rgba(194,144,56,0.08);
-      border: 1px solid rgba(194,144,56,0.2);
+      background: rgba(94,58,26,0.08);
+      border: 1px solid rgba(194,144,56,0.25);
     }
     .cta-text {
       font-family: 'Noto Serif SC', serif;
       font-size: 1.1rem;
       font-weight: 500;
-      color: var(--gold-light);
+      color: var(--sienna);
       margin-bottom: 1.5rem;
     }
     .cta-contacts {
@@ -797,14 +797,14 @@
     .contact-label {
       font-family: 'Outfit', sans-serif;
       font-size: 0.75rem;
-      color: var(--gold-pale);
+      color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
     .contact-value {
       font-family: 'Outfit', sans-serif;
       font-size: 0.9rem;
-      color: var(--cream);
+      color: var(--umber);
       font-weight: 500;
     }
 
@@ -1474,8 +1474,8 @@
       <div class="summer-info reveal">
         <div class="instructor-info">
           <div class="info-label">授课老师</div>
-          <div class="info-value">梅琳</div>
-          <div class="info-detail">中国油画院特聘画家<br>职业油画家<br>9年升学教育经验</div>
+          <div class="info-value">杨缤 Bin Yang</div>
+          <div class="info-detail"><a href="#instructor" style="color: var(--gold-light); text-decoration: none;">Studio Founder & Master Instructor</a></div>
         </div>
         <div class="class-info">
           <div class="info-label">班级信息</div>
