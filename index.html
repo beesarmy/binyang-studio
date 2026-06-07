@@ -877,35 +877,81 @@
 
     .exhibition-card {
       background: var(--cream);
-      border: 1px solid rgba(194,144,56,0.2);
-      padding: 3rem 2rem;
+      border: 2px solid #2F5F5A;
+      padding: 0;
       margin-top: 2rem;
+      overflow: hidden;
+      position: relative;
     }
+    /* Poster-style top banner with teal */
+    .exhibition-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: #2F5F5A;
+      z-index: 1;
+    }
+    /* Poster-style bottom banner */
+    .exhibition-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 8px;
+      background: #2F5F5A;
+      z-index: 1;
+    }
+
     .exhibition-header {
       text-align: center;
       margin-bottom: 2.5rem;
-      border-bottom: 2px solid rgba(194,144,56,0.15);
-      padding-bottom: 1.5rem;
+      padding: 2.5rem 2rem 2rem;
+      border-bottom: 2px solid rgba(47,95,90,0.2);
+      position: relative;
+    }
+    .exhibition-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #2F5F5A, transparent);
+      background-size: 100% 100%;
     }
     .exhibition-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 400;
-      color: var(--umber);
+      color: #2F5F5A;
       margin-bottom: 0.8rem;
+      letter-spacing: 0.02em;
     }
     .exhibition-subtitle-zh {
       font-family: 'Noto Serif SC', serif;
-      font-size: 1rem;
-      color: var(--sienna);
-      line-height: 1.6;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #2F5F5A;
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+    .exhibition-subtitle-zh::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1rem auto 0;
     }
 
     .exhibition-details {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin: 0 2rem 2rem;
+      padding: 2rem;
+      background: rgba(47,95,90,0.05);
+      border: 1px solid rgba(47,95,90,0.1);
     }
     .detail-item {
       display: flex;
@@ -913,20 +959,21 @@
       align-items: flex-start;
     }
     .detail-icon {
-      font-size: 1.8rem;
+      font-size: 2rem;
       flex-shrink: 0;
+      opacity: 0.9;
     }
     .detail-content {
       flex: 1;
     }
     .detail-label {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
+      letter-spacing: 0.12em;
+      color: #2F5F5A;
+      margin-bottom: 0.4rem;
     }
     .detail-value {
       font-family: 'Outfit', sans-serif;
@@ -937,48 +984,51 @@
     }
 
     .exhibition-description {
-      background: rgba(94,58,26,0.04);
-      border-left: 3px solid var(--gold);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+      background: rgba(47,95,90,0.08);
+      border-left: 4px solid #2F5F5A;
+      padding: 2rem;
+      margin: 0 2rem 2rem;
     }
     .description-zh {
       font-family: 'Noto Serif SC', serif;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--umber);
-      line-height: 1.8;
-      margin-bottom: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
     }
     .description-en {
       font-family: 'Outfit', sans-serif;
       font-size: 0.85rem;
-      color: var(--umber);
+      color: #2F5F5A;
       line-height: 1.7;
       font-style: italic;
+      font-weight: 500;
     }
 
     .exhibition-cta {
       text-align: center;
-      padding: 1.5rem;
-      background: rgba(194,144,56,0.08);
-      border: 1px solid rgba(194,144,56,0.15);
+      padding: 2rem;
+      margin: 0 2rem 2rem;
+      background: linear-gradient(135deg, rgba(47,95,90,0.08) 0%, rgba(194,144,56,0.06) 100%);
+      border: 1px solid rgba(47,95,90,0.15);
     }
     .rsvp-text {
       font-family: 'Noto Serif SC', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--sienna);
-      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2F5F5A;
+      margin-bottom: 1rem;
     }
     .contact-note {
       font-family: 'Outfit', sans-serif;
       font-size: 0.8rem;
       color: var(--umber);
       margin-bottom: 0.8rem;
+      font-weight: 500;
     }
     .contact-methods {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--umber);
       font-weight: 500;
     }
@@ -1387,7 +1437,9 @@
       .summer-courses { grid-template-columns: repeat(2, 1fr); }
       .summer-info { grid-template-columns: 1fr; }
       .cta-contacts { grid-template-columns: 1fr; }
-      .exhibition-details { grid-template-columns: 1fr; }
+      .exhibition-details { grid-template-columns: 1fr; margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
+      .exhibition-description { margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
+      .exhibition-cta { margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
     }
 
     @media (max-width: 720px) {
@@ -1467,9 +1519,9 @@
         <li class="nav-dropdown">
           <a href="#programs" class="nav-dropdown-toggle" onclick="toggleDropdown(event)">Programs</a>
           <ul class="nav-dropdown-menu">
-            <li><a href="#programs" onclick="closeNav()">Year-Round Courses</a></li>
+            <li><a href="#programs" onclick="closeNav()">Courses</a></li>
             <li><a href="#summer" onclick="closeNav()">Summer 2026</a></li>
-            <li><a href="#art-show" onclick="closeNav()">Art Shows & Events</a></li>
+            <li><a href="#art-show" onclick="closeNav()">Art Exhibition 2026</a></li>
           </ul>
         </li>
         <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
@@ -1710,6 +1762,65 @@
     </div>
   </section>
 
+  <!-- ===== ART EXHIBITION 2026 ===== -->
+  <section class="art-shows" id="art-show">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Upcoming</div>
+        <h2 class="section-title">Student Art Exhibition</h2>
+        <div class="section-title-zh">学生作品汇报展</div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="exhibition-card reveal">
+        <div class="exhibition-header">
+          <h3 class="exhibition-title">2026 Student Art Exhibition</h3>
+          <p class="exhibition-subtitle-zh">杨缤艺术工作室<br>学生作品汇报展</p>
+        </div>
+
+        <div class="exhibition-details">
+          <div class="detail-item">
+            <div class="detail-icon">📅</div>
+            <div class="detail-content">
+              <div class="detail-label">Date</div>
+              <div class="detail-value">June 14th, 2026 (Sunday)</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">🕐</div>
+            <div class="detail-content">
+              <div class="detail-label">Time</div>
+              <div class="detail-value">3:00 PM – 5:00 PM</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-content">
+              <div class="detail-label">Location</div>
+              <div class="detail-value">35 Fairmount Rd<br>Ridgewood, NJ 07450</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exhibition-description">
+          <p class="description-zh">欢迎一同领略同学们的匠心创作，孩子们用快乐绘出五彩斑斓，意趣，创意绘就成长的奇妙篇章。欢迎家长、朋友及热爱艺术的朋友们共赴参加，见证孩子们的成长与蜕变！</p>
+          <p class="description-en">We invite you to witness the creative works of our talented students. Come celebrate their artistic journey and growth with us!</p>
+        </div>
+
+        <div class="exhibition-cta">
+          <p class="rsvp-text">We look forward to seeing you there! ❤️</p>
+          <p class="contact-note">For more information, contact us:</p>
+          <div class="contact-methods">
+            <span>WeChat: binyangfineart</span> |
+            <span>Phone: 917-708-4627</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== GALLERY ===== -->
   <section class="gallery" id="gallery">
     <div class="section-inner">
@@ -1774,65 +1885,6 @@
     <img src="" alt="Full size image" id="lightboxImg">
     <button class="lightbox-nav lightbox-next" aria-label="Next">&rsaquo;</button>
   </div>
-
-  <!-- ===== ART SHOWS & EVENTS ===== -->
-  <section class="art-shows" id="art-show">
-    <div class="section-inner">
-      <div class="reveal">
-        <div class="section-label">Upcoming</div>
-        <h2 class="section-title">Student Art Exhibition</h2>
-        <div class="section-title-zh">学生作品汇报展</div>
-        <div class="section-divider"></div>
-      </div>
-
-      <div class="exhibition-card reveal">
-        <div class="exhibition-header">
-          <h3 class="exhibition-title">2026 Student Art Exhibition</h3>
-          <p class="exhibition-subtitle-zh">杨缤艺术工作室<br>学生作品汇报展</p>
-        </div>
-
-        <div class="exhibition-details">
-          <div class="detail-item">
-            <div class="detail-icon">📅</div>
-            <div class="detail-content">
-              <div class="detail-label">Date</div>
-              <div class="detail-value">June 14th, 2026 (Sunday)</div>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">🕐</div>
-            <div class="detail-content">
-              <div class="detail-label">Time</div>
-              <div class="detail-value">3:00 PM – 5:00 PM</div>
-            </div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">📍</div>
-            <div class="detail-content">
-              <div class="detail-label">Location</div>
-              <div class="detail-value">35 Fairmount Rd<br>Ridgewood, NJ 07450</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="exhibition-description">
-          <p class="description-zh">欢迎一同领略同学们的匠心创作，孩子们用快乐绘出五彩斑斓，意趣，创意绘就成长的奇妙篇章。欢迎家长、朋友及热爱艺术的朋友们共赴参加，见证孩子们的成长与蜕变！</p>
-          <p class="description-en">We invite you to witness the creative works of our talented students. Come celebrate their artistic journey and growth with us!</p>
-        </div>
-
-        <div class="exhibition-cta">
-          <p class="rsvp-text">We look forward to seeing you there! ❤️</p>
-          <p class="contact-note">For more information, contact us:</p>
-          <div class="contact-methods">
-            <span>WeChat: binyangfineart</span> |
-            <span>Phone: 917-708-4627</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== ACCEPTANCES ===== -->
   <section class="acceptances" id="acceptances">
