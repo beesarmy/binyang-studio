@@ -1470,8 +1470,6 @@
       flex-shrink: 0;
     }
     .cookie-btn {
-      background: var(--gold);
-      color: var(--ink);
       border: none;
       padding: 0.6rem 1.5rem;
       border-radius: 2px;
@@ -1480,10 +1478,24 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
     }
-    .cookie-btn:hover {
+    .cookie-accept {
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .cookie-accept:hover {
       background: var(--gold-light);
+    }
+    .cookie-decline {
+      background: transparent;
+      color: rgba(255,253,247,0.8);
+      border: 1px solid rgba(255,253,247,0.5);
+    }
+    .cookie-decline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,253,247,0.8);
+      color: rgba(255,253,247,1);
     }
     .cookie-link {
       color: var(--gold);
@@ -2281,15 +2293,29 @@
     function initCookieConsent() {
       const banner = document.getElementById('cookieBanner');
       const acceptBtn = document.getElementById('cookieAccept');
+      const declineBtn = document.getElementById('cookieDecline');
+      const consent = localStorage.getItem('cookieConsent');
 
-      // Check if user has already accepted cookies
-      if (localStorage.getItem('cookieConsent') === 'accepted') {
+      // Check if user has already made a choice
+      if (consent === 'accepted' || consent === 'declined') {
         banner.style.display = 'none';
+
+        // If declined, disable GA
+        if (consent === 'declined') {
+          window['ga-disable-G-P0X6449WE9'] = true;
+        }
       }
 
       // Handle accept button
       acceptBtn.addEventListener('click', function() {
         localStorage.setItem('cookieConsent', 'accepted');
+        banner.style.display = 'none';
+      });
+
+      // Handle decline button
+      declineBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'declined');
+        window['ga-disable-G-P0X6449WE9'] = true;
         banner.style.display = 'none';
       });
     }
@@ -2307,8 +2333,9 @@
     <div class="cookie-content">
       <p>We use Google Analytics to understand how visitors use our site. By continuing to browse, you consent to our use of cookies and analytics.</p>
       <div class="cookie-actions">
-        <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
-        <a href="#privacy-policy" class="cookie-link">Privacy Policy</a>
+        <button class="cookie-btn cookie-accept" id="cookieAccept">Accept All</button>
+        <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
+        <a href="#privacy-policy" class="cookie-link">Learn More</a>
       </div>
     </div>
   </div>
