@@ -912,24 +912,31 @@
       z-index: 1;
     }
 
-    .exhibition-visual {
+    .exhibition-header-with-image {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 2rem;
+      border-bottom: 2px solid rgba(47,95,90,0.2);
+    }
+    .exhibition-header {
+      flex: 1;
       text-align: center;
-      padding: 2rem 2rem 1.5rem;
-      background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(47,95,90,0.03) 100%);
+    }
+    .exhibition-visual {
+      flex-shrink: 0;
+      padding-top: 0.5rem;
     }
     .exhibition-image {
-      max-width: 100%;
+      width: 120px;
       height: auto;
-      max-height: 350px;
+      max-height: 160px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
     }
 
     .exhibition-header {
-      text-align: center;
       margin-bottom: 2.5rem;
-      padding: 2.5rem 2rem 2rem;
-      border-bottom: 2px solid rgba(47,95,90,0.2);
       position: relative;
     }
     .exhibition-header::before {
@@ -1460,8 +1467,9 @@
       .summer-courses { grid-template-columns: repeat(2, 1fr); }
       .summer-info { grid-template-columns: 1fr; }
       .cta-contacts { grid-template-columns: 1fr; }
-      .exhibition-visual { padding: 1.5rem 1.5rem 1rem; }
-      .exhibition-image { max-height: 280px; }
+      .exhibition-header-with-image { flex-direction: column; align-items: center; gap: 1rem; padding: 1.5rem; }
+      .exhibition-visual { padding-top: 0; }
+      .exhibition-image { width: 100px; max-height: 140px; }
       .exhibition-details { grid-template-columns: 1fr; margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
       .exhibition-description { margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
       .exhibition-cta { margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
@@ -1798,13 +1806,14 @@
       </div>
 
       <div class="exhibition-card reveal">
-        <div class="exhibition-visual">
-          <img src="photos/exhibition/brushes.png" alt="Art Exhibition" class="exhibition-image">
-        </div>
-
-        <div class="exhibition-header">
-          <h3 class="exhibition-title">2026 Student Art Exhibition</h3>
-          <p class="exhibition-subtitle-zh">杨缤艺术工作室<br>学生作品汇报展</p>
+        <div class="exhibition-header-with-image">
+          <div class="exhibition-header">
+            <h3 class="exhibition-title">2026 Student Art Exhibition</h3>
+            <p class="exhibition-subtitle-zh">杨缤艺术工作室<br>学生作品汇报展</p>
+          </div>
+          <div class="exhibition-visual">
+            <img src="photos/exhibition/brushes.png" alt="Art Exhibition" class="exhibition-image">
+          </div>
         </div>
 
         <div class="exhibition-details">
