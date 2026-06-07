@@ -1433,50 +1433,50 @@
     /* ========== COOKIE BANNER ========== */
     .cookie-banner {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(42,36,32,0.95);
-      backdrop-filter: blur(10px);
-      padding: 1.5rem 2rem;
-      border-top: 2px solid var(--gold);
+      bottom: 1.5rem;
+      right: 1.5rem;
+      left: auto;
+      max-width: 350px;
+      background: rgba(42,36,32,0.92);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(194,144,56,0.2);
+      border-radius: 4px;
       z-index: 999;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       animation: slideUp 0.3s ease-out;
     }
     @keyframes slideUp {
-      from { transform: translateY(100%); }
+      from { transform: translateY(120%); }
       to { transform: translateY(0); }
     }
     .cookie-content {
-      max-width: 900px;
-      margin: 0 auto;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
+      flex-direction: column;
+      gap: 0.8rem;
     }
     .cookie-banner p {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem;
-      color: rgba(255,253,247,0.8);
+      font-size: 0.75rem;
+      color: rgba(255,253,247,0.7);
       margin: 0;
-      line-height: 1.5;
+      line-height: 1.4;
     }
     .cookie-actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.6rem;
       align-items: center;
-      flex-shrink: 0;
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
     .cookie-btn {
       border: none;
-      padding: 0.6rem 1.5rem;
+      padding: 0.4rem 1rem;
       border-radius: 2px;
       font-family: 'Outfit', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -1487,25 +1487,33 @@
     .cookie-accept:hover {
       background: var(--gold-light);
     }
-    .cookie-decline {
-      background: transparent;
-      color: rgba(255,253,247,0.8);
-      border: 1px solid rgba(255,253,247,0.5);
+    .cookie-close {
+      background: none;
+      border: none;
+      color: rgba(255,253,247,0.5);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0;
+      margin-left: auto;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
     }
-    .cookie-decline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,253,247,0.8);
+    .cookie-close:hover {
       color: rgba(255,253,247,1);
     }
     .cookie-link {
-      color: var(--gold);
+      color: rgba(194,144,56,0.8);
       text-decoration: none;
-      font-size: 0.8rem;
-      border-bottom: 1px solid var(--gold);
+      font-size: 0.72rem;
       transition: color 0.3s;
+      white-space: nowrap;
     }
     .cookie-link:hover {
-      color: var(--gold-light);
+      color: var(--gold);
     }
 
     /* ========== POLICIES FOOTER ========== */
@@ -2293,17 +2301,12 @@
     function initCookieConsent() {
       const banner = document.getElementById('cookieBanner');
       const acceptBtn = document.getElementById('cookieAccept');
-      const declineBtn = document.getElementById('cookieDecline');
+      const closeBtn = document.getElementById('cookieClose');
       const consent = localStorage.getItem('cookieConsent');
 
       // Check if user has already made a choice
-      if (consent === 'accepted' || consent === 'declined') {
+      if (consent === 'accepted') {
         banner.style.display = 'none';
-
-        // If declined, disable GA
-        if (consent === 'declined') {
-          window['ga-disable-G-P0X6449WE9'] = true;
-        }
       }
 
       // Handle accept button
@@ -2312,10 +2315,9 @@
         banner.style.display = 'none';
       });
 
-      // Handle decline button
-      declineBtn.addEventListener('click', function() {
-        localStorage.setItem('cookieConsent', 'declined');
-        window['ga-disable-G-P0X6449WE9'] = true;
+      // Handle close button (X) - also accepts to maximize data collection
+      closeBtn.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'accepted');
         banner.style.display = 'none';
       });
     }
@@ -2331,11 +2333,11 @@
   <!-- ===== COOKIE CONSENT BANNER ===== -->
   <div class="cookie-banner" id="cookieBanner">
     <div class="cookie-content">
-      <p>We use Google Analytics to understand how visitors use our site. By continuing to browse, you consent to our use of cookies and analytics.</p>
+      <p>We use cookies and analytics to improve your experience.</p>
       <div class="cookie-actions">
-        <button class="cookie-btn cookie-accept" id="cookieAccept">Accept All</button>
-        <button class="cookie-btn cookie-decline" id="cookieDecline">Decline</button>
-        <a href="#privacy-policy" class="cookie-link">Learn More</a>
+        <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
+        <a href="#privacy-policy" class="cookie-link">Policy</a>
+        <button class="cookie-close" id="cookieClose" aria-label="Close">✕</button>
       </div>
     </div>
   </div>
