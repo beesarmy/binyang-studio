@@ -175,6 +175,57 @@
     .nav-cta::after { display: none !important; }
     .nav-cta:hover { background: var(--gold) !important; color: var(--cream) !important; }
 
+    /* Dropdown menu */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-dropdown-toggle::before {
+      content: '▼';
+      font-size: 0.6rem;
+      transition: transform 0.3s;
+    }
+    .nav-dropdown-toggle.open::before {
+      transform: rotate(-180deg);
+    }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--parchment);
+      border: 1px solid rgba(194,144,56,0.2);
+      border-top: none;
+      list-style: none;
+      flex-direction: column;
+      gap: 0;
+      margin-top: -1px;
+      min-width: 200px;
+      z-index: 100;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .nav-dropdown-menu.open {
+      display: flex;
+    }
+    .nav-dropdown-menu a {
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid rgba(194,144,56,0.1);
+      color: var(--umber) !important;
+      font-size: 0.78rem !important;
+    }
+    .nav-dropdown-menu a::after { display: none !important; }
+    .nav-dropdown-menu a:hover {
+      background: rgba(194,144,56,0.08);
+      color: var(--gold) !important;
+    }
+    .nav-dropdown-menu li:last-child a {
+      border-bottom: none;
+    }
+
     /* Mobile menu */
     .nav-toggle {
       display: none;
@@ -808,6 +859,133 @@
       font-weight: 500;
     }
 
+    /* ========== ART SHOWS ========== */
+    .art-shows {
+      background: var(--parchment);
+      position: relative;
+    }
+    .art-shows::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+    }
+    .art-shows .section-label { color: var(--gold-light); }
+    .art-shows .section-title { color: var(--umber); }
+    .art-shows .section-title-zh { color: var(--warm-gray); }
+
+    .exhibition-card {
+      background: var(--cream);
+      border: 1px solid rgba(194,144,56,0.2);
+      padding: 3rem 2rem;
+      margin-top: 2rem;
+    }
+    .exhibition-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px solid rgba(194,144,56,0.15);
+      padding-bottom: 1.5rem;
+    }
+    .exhibition-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--umber);
+      margin-bottom: 0.8rem;
+    }
+    .exhibition-subtitle-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      color: var(--sienna);
+      line-height: 1.6;
+    }
+
+    .exhibition-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .detail-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .detail-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .detail-content {
+      flex: 1;
+    }
+    .detail-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .detail-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: var(--umber);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .exhibition-description {
+      background: rgba(94,58,26,0.04);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .description-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.9rem;
+      color: var(--umber);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .description-en {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: var(--umber);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .exhibition-cta {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(194,144,56,0.08);
+      border: 1px solid rgba(194,144,56,0.15);
+    }
+    .rsvp-text {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--sienna);
+      margin-bottom: 0.8rem;
+    }
+    .contact-note {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: var(--umber);
+      margin-bottom: 0.8rem;
+    }
+    .contact-methods {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: var(--umber);
+      font-weight: 500;
+    }
+    .contact-methods span {
+      display: inline;
+    }
+
     /* ========== GALLERY ========== */
     .gallery {
       background: var(--cream);
@@ -1209,6 +1387,7 @@
       .summer-courses { grid-template-columns: repeat(2, 1fr); }
       .summer-info { grid-template-columns: 1fr; }
       .cta-contacts { grid-template-columns: 1fr; }
+      .exhibition-details { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
@@ -1241,6 +1420,24 @@
       }
       .nav-toggle { display: block; z-index: 1001; }
 
+      /* Mobile dropdown */
+      .nav-dropdown-menu {
+        position: static;
+        display: none !important;
+        background: rgba(94,58,26,0.1);
+        border: none;
+        box-shadow: none;
+        margin-top: 0.5rem;
+        min-width: auto;
+      }
+      .nav-dropdown-menu.open {
+        display: flex !important;
+      }
+      .nav-dropdown-menu a {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem !important;
+      }
+
       .hero { min-height: 90vh; }
       .hero-title-zh { letter-spacing: 0.06em; }
 
@@ -1267,8 +1464,14 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#philosophy" onclick="closeNav()">Philosophy</a></li>
         <li><a href="#instructor" onclick="closeNav()">Instructor</a></li>
-        <li><a href="#programs" onclick="closeNav()">Programs</a></li>
-        <li><a href="#summer" onclick="closeNav()">Summer 2026</a></li>
+        <li class="nav-dropdown">
+          <a href="#programs" class="nav-dropdown-toggle" onclick="toggleDropdown(event)">Programs</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="#programs" onclick="closeNav()">Year-Round Courses</a></li>
+            <li><a href="#summer" onclick="closeNav()">Summer 2026</a></li>
+            <li><a href="#art-show" onclick="closeNav()">Art Shows & Events</a></li>
+          </ul>
+        </li>
         <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
         <li><a href="#acceptances" onclick="closeNav()">Alumni</a></li>
         <li><a href="#contact" onclick="closeNav()" class="nav-cta">Contact</a></li>
@@ -1572,6 +1775,65 @@
     <button class="lightbox-nav lightbox-next" aria-label="Next">&rsaquo;</button>
   </div>
 
+  <!-- ===== ART SHOWS & EVENTS ===== -->
+  <section class="art-shows" id="art-show">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Upcoming</div>
+        <h2 class="section-title">Student Art Exhibition</h2>
+        <div class="section-title-zh">学生作品汇报展</div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="exhibition-card reveal">
+        <div class="exhibition-header">
+          <h3 class="exhibition-title">2026 Student Art Exhibition</h3>
+          <p class="exhibition-subtitle-zh">杨缤艺术工作室<br>学生作品汇报展</p>
+        </div>
+
+        <div class="exhibition-details">
+          <div class="detail-item">
+            <div class="detail-icon">📅</div>
+            <div class="detail-content">
+              <div class="detail-label">Date</div>
+              <div class="detail-value">June 14th, 2026 (Sunday)</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">🕐</div>
+            <div class="detail-content">
+              <div class="detail-label">Time</div>
+              <div class="detail-value">3:00 PM – 5:00 PM</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-content">
+              <div class="detail-label">Location</div>
+              <div class="detail-value">35 Fairmount Rd<br>Ridgewood, NJ 07450</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exhibition-description">
+          <p class="description-zh">欢迎一同领略同学们的匠心创作，孩子们用快乐绘出五彩斑斓，意趣，创意绘就成长的奇妙篇章。欢迎家长、朋友及热爱艺术的朋友们共赴参加，见证孩子们的成长与蜕变！</p>
+          <p class="description-en">We invite you to witness the creative works of our talented students. Come celebrate their artistic journey and growth with us!</p>
+        </div>
+
+        <div class="exhibition-cta">
+          <p class="rsvp-text">We look forward to seeing you there! ❤️</p>
+          <p class="contact-note">For more information, contact us:</p>
+          <div class="contact-methods">
+            <span>WeChat: binyangfineart</span> |
+            <span>Phone: 917-708-4627</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== ACCEPTANCES ===== -->
   <section class="acceptances" id="acceptances">
     <div class="section-inner">
@@ -1700,6 +1962,42 @@
       links.classList.remove('open');
       nav.classList.remove('menu-open');
     }
+
+    /* ===== DROPDOWN MENU ===== */
+    function toggleDropdown(event) {
+      event.preventDefault();
+      var toggle = event.target;
+      var dropdown = toggle.closest('.nav-dropdown');
+      var menu = dropdown.querySelector('.nav-dropdown-menu');
+      var isOpen = menu.classList.contains('open');
+
+      // Close all other dropdowns
+      document.querySelectorAll('.nav-dropdown-menu.open').forEach(m => {
+        if (m !== menu) {
+          m.classList.remove('open');
+          m.closest('.nav-dropdown').querySelector('.nav-dropdown-toggle').classList.remove('open');
+        }
+      });
+
+      // Toggle current dropdown
+      if (isOpen) {
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+      } else {
+        menu.classList.add('open');
+        toggle.classList.add('open');
+      }
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown-menu.open').forEach(m => {
+          m.classList.remove('open');
+          m.closest('.nav-dropdown').querySelector('.nav-dropdown-toggle').classList.remove('open');
+        });
+      }
+    });
 
     /* ===== SCROLL REVEAL ===== */
     const observer = new IntersectionObserver((entries) => {
