@@ -2305,19 +2305,19 @@
       const consent = localStorage.getItem('cookieConsent');
 
       // Check if user has already made a choice
-      if (consent === 'accepted') {
+      if (consent === 'accepted' || consent === 'dismissed') {
         banner.style.display = 'none';
       }
 
-      // Handle accept button
+      // Handle accept button - explicitly accept cookies
       acceptBtn.addEventListener('click', function() {
         localStorage.setItem('cookieConsent', 'accepted');
         banner.style.display = 'none';
       });
 
-      // Handle close button (X) - also accepts to maximize data collection
+      // Handle close button (X) - just dismiss banner, don't accept
       closeBtn.addEventListener('click', function() {
-        localStorage.setItem('cookieConsent', 'accepted');
+        localStorage.setItem('cookieConsent', 'dismissed');
         banner.style.display = 'none';
       });
     }
